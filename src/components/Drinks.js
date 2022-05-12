@@ -1,9 +1,9 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 
-import UserContext from '../../contexts/UserContext';
+import UserContext from '../contexts/UserContext';
 
 function Drinks() {
     const [drinks, setDrinks] = useState([]);
@@ -49,7 +49,7 @@ function Drinks() {
     );
 }
 
-function MappingDrinks() {
+function MappingDrinks(props) {
     const { info } = props;
 
     return (
@@ -62,6 +62,8 @@ function MappingDrinks() {
 }
 
 export default Drinks;
+
+const ContainerContent = styled.div``;
 
 const Header = styled.div``;
 

@@ -10,12 +10,11 @@ import Drinks from "./Drinks";
 
 function App() {
 
+    const tokenStorage = JSON.parse(localStorage.getItem('token'));
+
     const [userInformation, setUserInformation] = useState(tokenStorage);
 
     const contextValue = { userInformation, setUserInformation };
-
-    const tokenStorage = JSON.parse(localStorage.getItem('token'));
-
 
     useEffect(() => {
         if (tokenStorage) {

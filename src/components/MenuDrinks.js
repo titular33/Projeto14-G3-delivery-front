@@ -1,7 +1,9 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { useState, useContext } from 'react';
-
+import axios from 'axios';
 import styled from 'styled-components';
+
+import UserContext from '../contexts/UserContext';
 
 function MenuDrinks() {
 
@@ -10,7 +12,6 @@ function MenuDrinks() {
     const { userInformation } = useContext(UserContext);
     const [categoryData, setCategoryData] = useState({ typeOfCategory: '' });
 
-    const choiceCategory = handleCategory();
     const navigate = useNavigate();
 
     const objCategory = {
@@ -40,19 +41,23 @@ function MenuDrinks() {
     return (
         <ContainerCategories>
             <ContainerFirstCategory>
-                <Link to='/transaction/sucos' style={{ textDecoration: 'none' }} onClick={() => { choiceCategory }}>
+                <Link to='/drinks/sucos' style={{ textDecoration: 'none' }} onClick={() => { handleCategory() }}>
+                    <p>SUCOS</p>
                 </Link>
             </ContainerFirstCategory>
             <ContainerSecondCategory>
-                <Link to='/transaction/refris' style={{ textDecoration: 'none' }} onClick={() => { choiceCategory }}>
+                <Link to='/drinks/refris' style={{ textDecoration: 'none' }} onClick={() => { handleCategory() }}>
+                    <p>REFRI</p>
                 </Link>
             </ContainerSecondCategory>
             <ContainerThirdCategory>
-                <Link to='/transaction/aguas' style={{ textDecoration: 'none' }} onClick={() => { choiceCategory }}>
+                <Link to='/drinks/aguas' style={{ textDecoration: 'none' }} onClick={() => { handleCategory() }}>
+                    <p>AGUAS</p>
                 </Link>
             </ContainerThirdCategory>
             <ContainerFourthCategory>
-                <Link to='/transaction/alcoolicos' style={{ textDecoration: 'none' }} onClick={() => { choiceCategory }}>
+                <Link to='/drinks/alcoolicos' style={{ textDecoration: 'none' }} onClick={() => { handleCategory() }}>
+                    <p>ALCOOLICOS</p>
                 </Link>
             </ContainerFourthCategory>
         </ContainerCategories>
@@ -61,12 +66,77 @@ function MenuDrinks() {
 
 export default MenuDrinks;
 
-const ContainerCategories = styled.div``;
+const ContainerCategories = styled.div`
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
 
-const ContainerFirstCategory = styled.div``;
+    p {
+        text-decoration: none;
+    }
+`;
 
-const ContainerSecondCategory = styled.div``;
+const ContainerFirstCategory = styled.div`
+    width: 300px;
+    height: 200px;
+    margin-top: 20px;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #D5D5D5;
 
-const ContainerThirdCategory = styled.div``;
+    p {
+        text-decoration: none;
+    }
+`;
 
-const ContainerFourthCategory = styled.div``;
+const ContainerSecondCategory = styled.div`
+    width: 300px;
+    height: 200px;
+    margin-top: 20px;
+    background-color: purple;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #D5D5D5;
+
+    p {
+        text-decoration: none;
+    }
+`;
+    
+const ContainerThirdCategory = styled.div`
+    width: 300px;
+    height: 200px;
+    margin-top: 20px;
+    background-color: green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #D5D5D5;
+
+    p {
+        text-decoration: none;
+    }
+`;
+
+const ContainerFourthCategory = styled.div`
+    width: 300px;
+    height: 200px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+    background-color: pink;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    border: 1px solid #D5D5D5;
+    
+    p {
+        text-decoration: none;
+    }
+`;
