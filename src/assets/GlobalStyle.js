@@ -132,6 +132,8 @@ table {
     box-sizing: border-box;
 }
 body {
+  font-family: 'Recursive', sans-serif;
+  font-family: 'Righteous', cursive;
 }
 `;
 
