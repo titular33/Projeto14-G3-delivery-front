@@ -13,8 +13,9 @@ function App() {
     const tokenStorage = JSON.parse(localStorage.getItem('token'));
 
     const [userInformation, setUserInformation] = useState(tokenStorage);
+    const [categoryData, setCategoryData] = useState({ typeOfCategory: '' });
 
-    const contextValue = { userInformation, setUserInformation };
+    const contextValue = { userInformation, setUserInformation, categoryData, setCategoryData };
 
     useEffect(() => {
         if (tokenStorage) {

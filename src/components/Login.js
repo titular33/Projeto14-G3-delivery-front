@@ -64,7 +64,9 @@ function Login() {
     return (
         <ContainerContent>
             <ContainerLogo>
-                <h1>G3 Delivery</h1>
+                <Link to='/' style={{ textDecoration: 'none' }}>
+                    <h1>G3 DELIVERY</h1>
+                </Link>
             </ContainerLogo>
             <ContainerInputs>
                 {inputsLogin}
@@ -85,7 +87,7 @@ const ContainerContent = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    //background: #8C11BE;
+    background: #126BA5;
     p {
         //font-family: 'Raleway';
         font-style: normal;
@@ -99,7 +101,7 @@ const ContainerContent = styled.div`
 
 const ContainerLogo = styled.div`
     h1 {
-        width: 147px;
+        width: 200px;
         height: 50px;
         //font-family: 'Saira Stencil One';
         font-style: normal;

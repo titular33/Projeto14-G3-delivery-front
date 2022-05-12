@@ -93,7 +93,9 @@ function Register() {
     return (
         <ContainerContent>
             <ContainerLogo>
-                <h1>G3 Delivery</h1>
+                <Link to='/' style={{ textDecoration: 'none' }}>
+                    <h1>G3 DELIVERY</h1>
+                </Link>
             </ContainerLogo>
             <ContainerInputs>
                 {inputsRegister}
@@ -111,10 +113,10 @@ const ContainerContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 100px;
+    justify-content: center;
     width: 100%;
-    height: 100%;
-    //background: #8C11BE;
+    height: 100vh;
+    background: #126BA5;
     p {
         //font-family: 'Raleway';
         font-style: normal;
@@ -128,7 +130,7 @@ const ContainerContent = styled.div`
 
 const ContainerLogo = styled.div`
     h1 {
-        width: 147px;
+        width: 200px;
         height: 50px;
         //font-family: 'Saira Stencil One';
         font-style: normal;

@@ -1,5 +1,5 @@
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useContext } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -9,8 +9,7 @@ function MenuDrinks() {
 
     const { category } = useParams();
 
-    const { userInformation } = useContext(UserContext);
-    const [categoryData, setCategoryData] = useState({ typeOfCategory: '' });
+    const { userInformation, setCategoryData } = useContext(UserContext);
 
     const navigate = useNavigate();
 

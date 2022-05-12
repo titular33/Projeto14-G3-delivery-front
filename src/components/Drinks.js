@@ -4,11 +4,13 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 import UserContext from '../contexts/UserContext';
+import Header from './Header';
+import Footer from './Footer';
 
 function Drinks() {
     const [drinks, setDrinks] = useState([]);
 
-    const { userInformation } = useContext(UserContext);
+    const { userInformation, categoryData } = useContext(UserContext);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -32,19 +34,23 @@ function Drinks() {
 
     return (
         <ContainerContent>
-            <Header>
-            </Header>
+            <Header />
+ 
 
             <ContainerCategories>
                 {
-                    <>
-                        {drinks.map(drink => <MappingDrinks info={drink} key={drinks._id} />)}
-                    </>
+                    drinks.category === categoryData ?
+                        <>
+                            {drinks.category.map(drink => <MappingDrinks info={drink} key={drinks._id} />)}
+                        </>
+                        :
+                        <ContainerEmpty>
+                            <p>Não há produtos nessa categoria</p>
+                        </ContainerEmpty>
                 }
             </ContainerCategories>
 
-            <Footer>
-            </Footer>
+            <Footer />
         </ContainerContent>
     );
 }
@@ -55,7 +61,7 @@ function MappingDrinks(props) {
     return (
         <>
             <p>{info.name}</p>
-            <p>{info.description}</p>
+            <p>{info.brand}</p>
             <p>{info.price}</p>
         </>
     );
@@ -65,8 +71,6 @@ export default Drinks;
 
 const ContainerContent = styled.div``;
 
-const Header = styled.div``;
-
 const ContainerCategories = styled.div``;
 
-const Footer = styled.div``;
+const ContainerEmpty = styled.div``;
