@@ -7,6 +7,7 @@ import Login from "./Login";
 import Register from "./Register";
 import Home from "./Home"
 import Drinks from "./Drinks";
+import Cart from "./Cart";
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
                         <Route path='/drinks/:category' element={<Drinks />} />
                         <Route path='/sign-up' element={<Register />} />
                         <Route path='/sign-in' element={<Login />} />
+                        <Route path='/cart' element={<Cart />} />
                     </Routes>
                 </BrowserRouter>
             </UserContext.Provider>
