@@ -4,7 +4,7 @@ import axios from "axios";
 import styled from "styled-components";
 import Swal from "sweetalert2";
 
-import { UserContext } from "../contexts/UserContext";
+import UserContext  from "../contexts/UserContext";
 
 export default function Cart() {
   const { userInfos } = useContext(UserContext);
