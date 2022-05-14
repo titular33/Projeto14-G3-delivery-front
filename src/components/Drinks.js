@@ -11,6 +11,9 @@ function Drinks() {
     const { userInformation, drinks, setDrinks, addId } = useContext(UserContext);
     const filtredDrinks = drinks.filter(drink => drink.idCategoria == addId);
 
+    const borderNotSelected = '#ffffff';
+    const colorNotSelected = '#000000';
+
     useEffect(() => {
         const config = {
             headers: {
@@ -37,8 +40,9 @@ function Drinks() {
 
                     filtredDrinks.map(drink => <MappingDrinks info={drink} key={drinks._id} />)
                     :
-
-                    <p>carregando...</p>
+                    <ContainerCategories border={borderNotSelected} color={colorNotSelected}>
+                        <p>Buscando bebida...</p>
+                    </ContainerCategories>
             }
             <Footer />
             <ContainerButton>
@@ -58,7 +62,7 @@ function MappingDrinks(props) {
 
     const [selected, setSelected] = useState(false);
 
-    const borderNotSelected = '#dbdbdb';
+    const borderNotSelected = '#ffffff';
     const borderSelected = '#008000';
     const colorNotSelected = '#000000';
     const colorSelected = '#008000';
@@ -83,7 +87,7 @@ function MappingDrinks(props) {
             setAddCart(addCart.splice(addCart.indexOf(info.id), 1));
             setAddCart([...addCart]);
         }
-        }>  
+        }>
             <img src={info.image} alt={info.brand}></img>
             <p>{info.name} ({info.brand})<br />R$ {info.price}</p>
         </ContainerCategories>
@@ -94,10 +98,11 @@ export default Drinks;
 
 const ContainerContent = styled.div`
     margin-top: 80px;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    background: #DBDBDB;
 `;
 
 const ContainerCategories = styled.button`
@@ -108,8 +113,9 @@ const ContainerCategories = styled.button`
     align-items: center;
     justify-content: center;
     border: 4px solid ${props => props.border};
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
     background-color: #ffffff;
-    border-radius: 5px;
+    border-radius: 8px;
     color: ${props => props.color};
     cursor: pointer;
 

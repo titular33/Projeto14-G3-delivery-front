@@ -56,6 +56,7 @@ const ContainerCategories = styled.div`
     flex-direction: column;
 
     p {
+        color: white;
         text-decoration: none;
     }
 `;
@@ -68,8 +69,8 @@ const ContainerFirstCategory = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
-    border: 1px solid #D5D5D5;
+    border-radius: 8px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
 
     p {
         text-decoration: none;
@@ -84,8 +85,8 @@ const ContainerSecondCategory = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
-    border: 1px solid #D5D5D5;
+    border-radius: 8px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
 
     p {
         text-decoration: none;
@@ -100,8 +101,8 @@ const ContainerThirdCategory = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
-    border: 1px solid #D5D5D5;
+    border-radius: 8px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
 
     p {
         text-decoration: none;
@@ -117,8 +118,8 @@ const ContainerFourthCategory = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px;
-    border: 1px solid #D5D5D5;
+    border-radius: 8px;
+    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
     
     p {
         text-decoration: none;
