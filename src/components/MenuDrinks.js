@@ -1,61 +1,46 @@
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 
 import UserContext from '../contexts/UserContext';
 
 function MenuDrinks() {
-
-    const { category } = useParams();
-
-    const { userInformation, setCategoryData } = useContext(UserContext);
+    const { setAddId } = useContext(UserContext);
 
     const navigate = useNavigate();
-
-    const objCategory = {
-        typeOfCategory: category
-    }
-    const config = {
-        headers: {
-            Authorization: `Bearer ${userInformation}`
-        }
-    }
-    const URL = 'https://g3-delivery.herokuapp.com/drinks';
-
-    function handleCategory() {
-        const promise = axios.post(URL, objCategory, config);
-
-        promise.then((response) => {
-            setCategoryData(response.data);
-            navigate('/drinks');
-        });
-
-        promise.catch(error => {
-            console.log(error);
-            alert('Deu algum erro...');
-        });
-    }
 
     return (
         <ContainerCategories>
             <ContainerFirstCategory>
-                <Link to='/drinks/sucos' style={{ textDecoration: 'none' }} onClick={() => { handleCategory() }}>
+                <Link to='/drinks/sucos' style={{ textDecoration: 'none' }} onClick={() => {
+                    setAddId("sucos" );
+                    navigate('/drinks');
+                }}>
                     <p>SUCOS</p>
                 </Link>
             </ContainerFirstCategory>
             <ContainerSecondCategory>
-                <Link to='/drinks/refris' style={{ textDecoration: 'none' }} onClick={() => { handleCategory() }}>
+                <Link to='/drinks/refris' style={{ textDecoration: 'none' }} onClick={() => {
+                    setAddId("refrigerantes");
+                    navigate('/drinks');
+                }}>
                     <p>REFRI</p>
                 </Link>
             </ContainerSecondCategory>
             <ContainerThirdCategory>
-                <Link to='/drinks/aguas' style={{ textDecoration: 'none' }} onClick={() => { handleCategory() }}>
+                <Link to='/drinks/aguas' style={{ textDecoration: 'none' }} onClick={() => {
+                    setAddId("aguas");
+                    navigate('/drinks');
+                }}>
                     <p>AGUAS</p>
                 </Link>
             </ContainerThirdCategory>
             <ContainerFourthCategory>
-                <Link to='/drinks/alcoolicos' style={{ textDecoration: 'none' }} onClick={() => { handleCategory() }}>
+                <Link to='/drinks/alcoolicos' style={{ textDecoration: 'none' }} onClick={() => {
+
+                    setAddId("alcoolicos");
+                    navigate('/drinks');
+                }}>
                     <p>ALCOOLICOS</p>
                 </Link>
             </ContainerFourthCategory>
@@ -106,7 +91,7 @@ const ContainerSecondCategory = styled.div`
         text-decoration: none;
     }
 `;
-    
+
 const ContainerThirdCategory = styled.div`
     width: 300px;
     height: 200px;

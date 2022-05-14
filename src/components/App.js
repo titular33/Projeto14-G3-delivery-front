@@ -10,20 +10,26 @@ import Drinks from "./Drinks";
 import Cart from "./Cart";
 
 function App() {
-
     const tokenStorage = JSON.parse(localStorage.getItem('token'));
+    const imageStorage = JSON.parse(localStorage.getItem('userImage'));
 
-    const [userInformation, setUserInformation] = useState(tokenStorage);
-    const [categoryData, setCategoryData] = useState({ typeOfCategory: '' });
+    const [userInformation, setUserInformation] = useState(tokenStorage, imageStorage);//tokenStorage
+    const [userImage, setUserImage] = useState("");
+    const [drinks, setDrinks] = useState([]);
+    const [addCart, setAddCart] = useState([]);
+    const [addId, setAddId] = useState();
 
-    const contextValue = { userInformation, setUserInformation, categoryData, setCategoryData };
+    const contextValue = { userInformation, setUserInformation, drinks, setDrinks, addId, setAddId, addCart, setAddCart, userImage, setUserImage };
 
     useEffect(() => {
         if (tokenStorage) {
             setUserInformation(tokenStorage);
         }
+        if(imageStorage){
+            setUserImage(imageStorage);
+        }
     }, []);
-
+    
     return (
         <>
             <GlobalStyle />

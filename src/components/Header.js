@@ -4,10 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
 import UserContext from '../contexts/UserContext';
+import perfil_default from '../assets/images/perfil_default.png'
 
 function Header() {
 
-    const { setUserInformation, userInformation } = useContext(UserContext); //lembrar de passar a url no back-end {userInformation.urlImage}
+    const { setUserInformation, userInformation, userImage, setAddCart } = useContext(UserContext);
     const navigate = useNavigate();
 
     function logOut() {
@@ -21,12 +22,14 @@ function Header() {
 
     return (
         <ContainerHeader>
-            <Link to='/' style={{ textDecoration: 'none' }}>
+            <Link to='/' style={{ textDecoration: 'none' }} onClick={() => {
+                    setAddCart([]);
+                }}>
                 <h1>G3 DELIVERY</h1>
             </Link>
             <ContainerUser>
             <Link to='sign-in' style={{ textDecoration: 'none' }}>
-            <img src={userInformation ? userInformation.urlImage : "https://camarasaoluizdoparaitinga.sp.gov.br/portalImages?id=2696"} alt='photoPerfil' />
+            <img src={userInformation ? `${userImage}` : perfil_default} alt='photoPerfil' />
             </Link>
                 <ion-icon name="cart-outline"></ion-icon>
                 <ion-icon name="log-out-outline" onClick={() => { logOut() }}></ion-icon>

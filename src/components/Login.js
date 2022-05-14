@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import UserContext from '../contexts/UserContext';
 
 function Login() {
-    const { setUserInformation } = useContext(UserContext);
+    const { setUserInformation, setUserImage } = useContext(UserContext);
     const [infosLogin, setInfosLogin] = useState({ email: '', password: '' });
 
     const inputsLogin = handleInputsLogin();
@@ -23,10 +23,13 @@ function Login() {
         const promise = axios.post(URL, objLogin);
 
         promise.then((response) => {
-            setUserInformation(response.data.token);
+            setUserInformation(response.data);
+            setUserImage(response.data.urlImage);
             const user = JSON.stringify(response.data.token);
+            const userImage = JSON.stringify(response.data.urlImage);
             localStorage.setItem('token', user);
-            navigate('/home');
+            localStorage.setItem('userImage', userImage);
+            navigate('/');
         });
 
         promise.catch(error => {
