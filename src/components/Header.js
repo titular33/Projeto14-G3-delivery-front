@@ -16,6 +16,7 @@ function Header() {
             window.localStorage.removeItem('user');
             window.localStorage.clear('user');
             setUserInformation(null);
+            setAddCart([]);
             navigate("/");
         }
     }

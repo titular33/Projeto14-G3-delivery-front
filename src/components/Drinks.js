@@ -9,19 +9,15 @@ import Footer from './Footer';
 
 function Drinks() {
     const { userInformation, drinks, setDrinks, addId } = useContext(UserContext);
-    const filtredDrinks = drinks.filter(drink => drink.idCategoria == addId);
 
+    const filtredDrinks = drinks.filter(drink => drink.idCategoria == addId);
+    
     const borderNotSelected = '#ffffff';
     const colorNotSelected = '#000000';
 
     useEffect(() => {
-        const config = {
-            headers: {
-                Authorization: `Bearer ${userInformation.token}`
-            }
-        }
         const URL = 'https://g3-delivery.herokuapp.com/drinks';
-        const promise = axios.get(URL, config);
+        const promise = axios.get(URL);
 
         promise.then((response) => {
             setDrinks(response.data);
@@ -38,18 +34,38 @@ function Drinks() {
             {
                 filtredDrinks.length > 0 ?
 
+
                     filtredDrinks.map(drink => <MappingDrinks info={drink} key={drinks._id} />)
                     :
                     <ContainerCategories border={borderNotSelected} color={colorNotSelected}>
                         <p>Buscando bebida...</p>
                     </ContainerCategories>
+
             }
             <Footer />
             <ContainerButton>
-                <Link to='/cart'>
-                    <button>Colocar no carrinho!</button>
-                </Link>
+                {
+                    userInformation ?
+                        <Link to='/cart'>
+                            <button>Colocar no carrinho!</button>
+                        </Link>
+                        :
+
+                        <>
+                            <button disabled>Colocar no carrinho!</button>
+                            <p>Você precisa estar logado para <br />colocar este produto no carrinho!</p>
+                        </>
+                }
             </ContainerButton>
+            {
+                userInformation ?
+                    <Link to='/'>
+                        <Button>Escolher outra bebida...</Button>
+                    </Link>
+                    :
+
+                    <></>
+            }
         </ContainerContent>
     );
 }
@@ -66,8 +82,6 @@ function MappingDrinks(props) {
     const borderSelected = '#008000';
     const colorNotSelected = '#000000';
     const colorSelected = '#008000';
-
-    console.log("CARRINHO", addCart)
 
     if (selected === false) {
         return <ContainerCategories border={borderNotSelected} color={colorNotSelected} onClick={() => {
@@ -98,7 +112,7 @@ export default Drinks;
 
 const ContainerContent = styled.div`
     margin-top: 80px;
-    height: 100vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -135,6 +149,9 @@ const ContainerCategories = styled.button`
 `;
 
 const ContainerButton = styled.div`
+    display: flex;
+    flex-direction: column;
+   
     button {
         font-family: 'Righteous';
         font-style: normal;
@@ -154,4 +171,29 @@ const ContainerButton = styled.div`
         color: #ffffff;
         cursor: pointer;
     }
+
+    p {
+        color: red;
+        margin-top: 8px;
+    }
+`;
+
+const Button = styled.button`
+    font-family: 'Righteous';
+    font-style: normal;
+    width: 246px;
+    height: 54px;
+    margin-top: 10px;
+    background: green;
+    border: 1px solid #D70900;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    border: none;
+    font-family: 'Recursive';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: #ffffff;
+    cursor: pointer;
 `;

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 function Register() {
 
-    const [infosRegister, setInfosRegister] = useState({ name: "", email: "", password: "", confirmPassword: "", urlImage: "" });
+    const [infosRegister, setInfosRegister] = useState({ name: "", email: "", password: "", confirmedPassword: "", urlImage: "" });
 
     const inputsRegister = handleInputsRegister();
     const navigate = useNavigate();
@@ -15,9 +15,10 @@ function Register() {
         name: infosRegister.name,
         email: infosRegister.email,
         password: infosRegister.password,
-        confirmPassword: infosRegister.confirmPassword,
+        confirmedPassword: infosRegister.confirmedPassword,
         urlImage: infosRegister.urlImage
     }
+    console.log(objRegister)
     const URL = 'https://g3-delivery.herokuapp.com/sign-up';
 
     function handleRegister(e) {
@@ -68,9 +69,9 @@ function Register() {
                 <input
                     type='password'
                     placeholder='Confirme a senha'
-                    name='confirmPassword'
-                    value={infosRegister.confirmPassword}
-                    onChange={e => setInfosRegister({ ...infosRegister, confirmPassword: e.target.value })}
+                    name='confirmedPassword'
+                    value={infosRegister.confirmedPassword}
+                    onChange={e => setInfosRegister({ ...infosRegister, confirmedPassword: e.target.value })}
                     disabled={false}
                     required
                 />
