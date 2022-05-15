@@ -44,7 +44,7 @@ export default Header;
 const ContainerHeader = styled.div`
     width: 100%;
     height: 80px;
-    background: #126BA5;
+    background: #A52A2A;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;

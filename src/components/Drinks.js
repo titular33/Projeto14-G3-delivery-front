@@ -54,6 +54,7 @@ function Drinks() {
                         <>
                             <button disabled>Colocar no carrinho!</button>
                             <p>Você precisa estar logado para <br />colocar este produto no carrinho!</p>
+                            <p>Faça o login clicando <Link to='/sign-in' style={{ textDecoration: 'none' }}>AQUI!</Link></p>
                         </>
                 }
             </ContainerButton>
@@ -116,7 +117,7 @@ const ContainerContent = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #DBDBDB;
+    background: #FFE4C4;
 `;
 
 const ContainerCategories = styled.button`
@@ -157,7 +158,7 @@ const ContainerButton = styled.div`
         font-style: normal;
         width: 246px;
         height: 54px;
-        background: #9048c8;
+        background: #32CD32;
         border: 1px solid #D70900;
         box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
         border-radius: 5px;
@@ -184,7 +185,7 @@ const Button = styled.button`
     width: 246px;
     height: 54px;
     margin-top: 10px;
-    background: green;
+    background: #A52A2A;
     border: 1px solid #D70900;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 5px;

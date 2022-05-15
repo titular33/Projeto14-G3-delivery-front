@@ -23,7 +23,7 @@ const ContainerContent = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #DBDBDB;
+    background: #FFE4C4;
 `;
 
 const ContainerCategories = styled.div`

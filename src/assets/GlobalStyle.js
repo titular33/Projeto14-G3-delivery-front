@@ -134,7 +134,7 @@ table {
 body {
   font-family: 'Recursive', sans-serif;
   font-family: 'Righteous', cursive;
-  background: #DBDBDB;
+  background: #FFE4C4;
 }
 `;
 

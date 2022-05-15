@@ -4,6 +4,11 @@ import styled from 'styled-components';
 
 import UserContext from '../contexts/UserContext';
 
+import alcoolicos from '../assets/images/alcoolicos.jpg'
+import aguas from '../assets/images/aguas.jpg'
+import refrigerantes from '../assets/images/refrigerantes.webp'
+import sucos from '../assets/images/sucos.jpg'
+
 function MenuDrinks() {
     const { setAddId } = useContext(UserContext);
 
@@ -13,18 +18,20 @@ function MenuDrinks() {
         <ContainerCategories>
             <ContainerFirstCategory>
                 <Link to='/drinks/sucos' style={{ textDecoration: 'none' }} onClick={() => {
-                    setAddId("sucos" );
+                    setAddId("sucos");
                     navigate('/drinks');
                 }}>
-                    <p>SUCOS</p>
+                    <img src={sucos} alt='sucos' />
                 </Link>
+                <p>SUCO</p>
             </ContainerFirstCategory>
             <ContainerSecondCategory>
                 <Link to='/drinks/refris' style={{ textDecoration: 'none' }} onClick={() => {
                     setAddId("refrigerantes");
                     navigate('/drinks');
                 }}>
-                    <p>REFRI</p>
+                    <img src={refrigerantes} alt='refrigerantes' />
+                    <p>REFRIGERANTE</p>
                 </Link>
             </ContainerSecondCategory>
             <ContainerThirdCategory>
@@ -32,7 +39,8 @@ function MenuDrinks() {
                     setAddId("aguas");
                     navigate('/drinks');
                 }}>
-                    <p>AGUAS</p>
+                    <img src={aguas} alt='aguas' />
+                    <p>ÁGUA</p>
                 </Link>
             </ContainerThirdCategory>
             <ContainerFourthCategory>
@@ -41,7 +49,8 @@ function MenuDrinks() {
                     setAddId("alcoolicos");
                     navigate('/drinks');
                 }}>
-                    <p>ALCOOLICOS</p>
+                    <img src={alcoolicos} alt='alcoolicos' />
+                    <p>ALCOÓLICO</p>
                 </Link>
             </ContainerFourthCategory>
         </ContainerCategories>
@@ -62,66 +71,84 @@ const ContainerCategories = styled.div`
 `;
 
 const ContainerFirstCategory = styled.div`
-    width: 300px;
-    height: 200px;
-    margin-top: 20px;
-    background-color: orange;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
 
     p {
         text-decoration: none;
+        position: absolute;
+    }
+
+    img {
+        width: 300px;
+        height: 200px;
+        margin-top: 20px;
+        background-color: #A52A2A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15); 
+        position: relative;
     }
 `;
 
 const ContainerSecondCategory = styled.div`
-    width: 300px;
-    height: 200px;
-    margin-top: 20px;
-    background-color: purple;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
-
     p {
         text-decoration: none;
+        position: absolute;
+    }
+
+    img {
+        width: 300px;
+        height: 200px;
+        margin-top: 20px;
+        background-color: #A52A2A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15); 
+        position: relative;
     }
 `;
 
 const ContainerThirdCategory = styled.div`
-    width: 300px;
-    height: 200px;
-    margin-top: 20px;
-    background-color: green;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
-
     p {
         text-decoration: none;
+        position: absolute;
+    }
+
+    img {
+        width: 300px;
+        height: 200px;
+        margin-top: 20px;
+        background-color: #A52A2A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15); 
+        position: relative;
     }
 `;
 
 const ContainerFourthCategory = styled.div`
-    width: 300px;
-    height: 200px;
-    margin-top: 20px;
     margin-bottom: 100px;
-    background-color: pink;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
     
     p {
         text-decoration: none;
+        position: absolute;
+    }
+
+    img {
+        width: 300px;
+        height: 200px;
+        margin-top: 20px;
+        background-color: #A52A2A;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15); 
+        position: relative;
     }
 `;

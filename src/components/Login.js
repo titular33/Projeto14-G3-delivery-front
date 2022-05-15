@@ -90,9 +90,8 @@ const ContainerContent = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: #126BA5;
+    background: #A52A2A;
     p {
-        //font-family: 'Raleway';
         font-style: normal;
         font-weight: 700;
         font-size: 15px;
@@ -106,7 +105,6 @@ const ContainerLogo = styled.div`
     h1 {
         width: 200px;
         height: 50px;
-        //font-family: 'Saira Stencil One';
         font-style: normal;
         font-weight: 400;
         font-size: 32px;
@@ -127,7 +125,6 @@ const ContainerInputs = styled.div`
         margin-bottom: 13px;
         display: flex;
         flex-direction: column;
-        //font-family: 'Lexend Deca';
         font-style: normal;
         font-weight: 400;
         font-size: 19.976px;
@@ -138,7 +135,6 @@ const ContainerInputs = styled.div`
         outline: 0;
     }
     input::placeholder {
-        //font-family: 'Raleway';
         font-style: normal;
         font-weight: 400;
         font-size: 20px;
@@ -148,9 +144,8 @@ const ContainerInputs = styled.div`
     button {
         width: 326px;
         height: 46px;
-        background: #A328D6;
+        background: #FFD700;
         border-radius: 5px;
-        //font-family: 'Raleway';
         font-style: normal;
         font-weight: 700;
         font-size: 20px;
