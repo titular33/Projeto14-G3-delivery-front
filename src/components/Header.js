@@ -29,7 +29,7 @@ function Header() {
                 <h1>G3 DELIVERY</h1>
             </Link>
             <ContainerUser>
-                <Link to='sign-in' style={{ textDecoration: 'none' }}>
+                <Link to='/sign-in' style={{ textDecoration: 'none' }}>
                     <img src={userInformation ? `${userImage}` : perfil_default} alt='photoPerfil' />
                 </Link>
 
@@ -41,7 +41,12 @@ function Header() {
                         :
                         <ion-icon name="cart-outline"></ion-icon>
                 }
-                <ion-icon name="log-out-outline" onClick={() => { logOut() }}></ion-icon>
+                {
+                    userInformation ?
+                    <ion-icon name="log-out-outline" onClick={() => { logOut() }}></ion-icon>
+                    :
+                    <ion-icon name="log-out-outline"></ion-icon>
+                }
             </ContainerUser>
         </ContainerHeader>
     );

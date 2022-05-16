@@ -59,9 +59,7 @@ function MappingDrinks(props) {
 
     const { setAddCart } = useContext(UserContext);
     return (
-        <Link to='/selected' style={{ textDecoration: 'none' }} onClick={() => {
-            setAddCart(info);
-        }}>
+        <Link to='/selected' style={{ textDecoration: 'none' }} onClick={() => { setAddCart(info) }}>
             <ContainerCategories>
                 <img src={info.image} alt={info.brand}></img>
                 <p>{info.name} ({info.brand})<br />R$ {info.price}</p>
@@ -96,6 +94,8 @@ const ContainerCategories = styled.div`
     img {
         width: 110px;
         height: 110px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
 
     p {

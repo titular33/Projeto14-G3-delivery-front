@@ -57,7 +57,12 @@ function DrinkSelected() {
                 </ContainerCart>
             }
             <ContainerButton>
-                <button onClick={() => { addDrink() }}>Colocar no carrinho!</button>
+                {
+                    userInformation?
+                    <button onClick={() => { addDrink() }}>Colocar no carrinho!</button>
+                    :
+                    <Link to='/sign-in'><button>Clique para se logar!</button></Link>
+                }
             </ContainerButton>
             <Footer />
         </ContainerContent>

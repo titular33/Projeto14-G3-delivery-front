@@ -14,8 +14,6 @@ export default function Cart() {
 
   const navigate = useNavigate();
 
-  console.log("user de quem ta usando o carrinho", userIdCart)
-
   useEffect(() => {
     const config = {
       headers: {
@@ -33,6 +31,7 @@ export default function Cart() {
       alert("Deu algum erro no get do carrinho...");
     });
   }, []);
+
 
   function calculateTotal() {
     let total = 0;
@@ -53,12 +52,12 @@ export default function Cart() {
         Authorization: `Bearer ${userInformation}`,
       },
     };
-    const URL = 'https://g3-delivery.herokuapp.com/cart';
+    const URL = 'https://g3-delivery.herokuapp.com/finish';
     const promise = axios.post(URL, cartProducts, config);
 
     promise.then((response) => {
       setProductsSold(response.data);
-      alert("Compra confirmada!")
+      alert("Compra confirmada!");
       navigate("/");
     });
     promise.catch(error => {
@@ -95,36 +94,34 @@ export default function Cart() {
 
 function MappingProductsCart(props) {
   const { info } = props;
-  const { id } = useParams;
 
   const { userInformation } = useContext(UserContext);
-  const navigate = useNavigate();
 
-  function deleteProduct() {
+  /*function DeleteProduct() {
     const config = {
       headers: {
         Authorization: `Bearer ${userInformation}`,
       },
     };
-    const URL = 'https://g3-delivery.herokuapp.com/cart/:id';
+    const URL = `https://g3-delivery.herokuapp.com/cart`;
     const promise = axios.delete(URL, config);
 
     promise.then((response) => {
       alert("Produto retirado do carrinho!")
-      navigate("/cart");
     });
     promise.catch(error => {
       console.log(error);
       alert("Deu algum erro...");
     });
   }
+  */
 
   return (
     <ContainerCart>
       <img src={info.image} alt={info.brand}></img>
       <p>{info.name} ({info.brand})<br />R$ {info.price}</p>
       <ion-icon name="trash-outline" onClick={() => {
-        deleteProduct();
+       //DeleteProduct();
       }}>
       </ion-icon>
     </ContainerCart>
@@ -156,6 +153,8 @@ const ContainerCart = styled.div`
   img {
     width: 110px;
     height: 110px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   p {
