@@ -77,6 +77,7 @@ const ContainerContent = styled.div`
     flex-direction: column;
     align-items: center;
     background: #FFE4C4;
+    margin-bottom: 100px;
 `;
 
 const ContainerCategories = styled.div`

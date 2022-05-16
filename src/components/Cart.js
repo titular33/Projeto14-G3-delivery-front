@@ -57,8 +57,26 @@ export default function Cart() {
 
     promise.then((response) => {
       setProductsSold(response.data);
-      alert("Compra confirmada!");
+      DeleteProduct();
       navigate("/");
+    });
+    promise.catch(error => {
+      console.log(error);
+      alert("Deu algum erro...");
+    });
+  }
+
+  function DeleteProduct() {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${userInformation}`,
+      },
+    };
+    const URL = `https://g3-delivery.herokuapp.com/cart`;
+    const promise = axios.delete(URL, config);
+
+    promise.then((response) => {
+      alert("Compra confirmada!");
     });
     promise.catch(error => {
       console.log(error);
@@ -80,8 +98,8 @@ export default function Cart() {
           <button onClick={() => { finishOrder() }}>Finalizar Compra</button>
         </ContainerButton>
         <Link to='/'>
-            <Button>Adicionar outra bebida...</Button>
-          </Link>
+          <Button>Adicionar outra bebida...</Button>
+        </Link>
         <Footer />
       </ContainerContent>
       :
@@ -97,32 +115,11 @@ function MappingProductsCart(props) {
 
   const { userInformation } = useContext(UserContext);
 
-  /*function DeleteProduct() {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${userInformation}`,
-      },
-    };
-    const URL = `https://g3-delivery.herokuapp.com/cart`;
-    const promise = axios.delete(URL, config);
-
-    promise.then((response) => {
-      alert("Produto retirado do carrinho!")
-    });
-    promise.catch(error => {
-      console.log(error);
-      alert("Deu algum erro...");
-    });
-  }
-  */
-
   return (
     <ContainerCart>
       <img src={info.image} alt={info.brand}></img>
       <p>{info.name} ({info.brand})<br />R$ {info.price}</p>
-      <ion-icon name="trash-outline" onClick={() => {
-       //DeleteProduct();
-      }}>
+      <ion-icon name="trash-outline">
       </ion-icon>
     </ContainerCart>
   );
