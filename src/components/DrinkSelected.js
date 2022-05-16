@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -14,7 +14,7 @@ function DrinkSelected() {
 
     const navigate = useNavigate();
 
-    const filtredDrinks = drinks.filter(drink => drink._id == addCart._id);
+    const filtredDrinks = drinks.filter(drink => drink._id === addCart._id);
 
     function addDrink() {
         const config = {

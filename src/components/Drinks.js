@@ -1,5 +1,5 @@
-import { useState, useContext, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 
@@ -8,9 +8,9 @@ import Header from './Header';
 import Footer from './Footer';
 
 function Drinks() {
-    const { userInformation, drinks, setDrinks, addId, addCart, setUserIdCart } = useContext(UserContext);
+    const { userInformation, drinks, setDrinks, addId } = useContext(UserContext);
 
-    const filtredDrinks = drinks.filter(drink => drink.idCategoria == addId);
+    const filtredDrinks = drinks.filter(drink => drink.idCategoria === addId);
 
     useEffect(() => {
         const URL = 'https://g3-delivery.herokuapp.com/drinks';

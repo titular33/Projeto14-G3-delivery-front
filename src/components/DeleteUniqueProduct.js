@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
@@ -8,11 +8,13 @@ import Footer from "./Footer";
 import UserContext from "../contexts/UserContext";
 
 export default function DeleteUniqueProduct() {
-  const { cartProduct, userInformation, infoDelete } = useContext(UserContext);
+  const { cartProduct, userInformation, infosDelete } = useContext(UserContext);
 
   const navigate = useNavigate();
 
   const { id } = useParams();
+
+  const filtredProduct = infosDelete.find(infoDelete => infoDelete._id === id);
 
   function Delete() {
     const config = {
@@ -32,12 +34,14 @@ export default function DeleteUniqueProduct() {
       alert("Deu algum erro...");
     });
   }
-  console.log(infoDelete);
-  
+  console.log(infosDelete);
+
   return (
     <ContainerContent>
       <Header />
       <ContainerCart>
+      <img src={filtredProduct.image} alt={filtredProduct.brand}></img>
+      <p>{filtredProduct.name} ({filtredProduct.brand})<br />R$ {filtredProduct.price}</p>
       </ContainerCart>
       <ContainerButton>
           <button onClick={() => Delete()}>Deletar Produto!</button>

@@ -22,9 +22,9 @@ function App() {
     const [userIdCart, setUserIdCart] = useState([]);
     const [cartProducts, setCartProducts] = useState([]);
     const [addId, setAddId] = useState();
-    const [infoDelete, setInfoDelete] = useState();
+    const [infosDelete, setInfosDelete] = useState([]);
 
-    const contextValue = { userInformation, setUserInformation, drinks, setDrinks, addId, setAddId, addCart, setAddCart, userImage, setUserImage, cartProducts, setCartProducts, userIdCart, setUserIdCart, infoDelete, setInfoDelete };
+    const contextValue = { userInformation, setUserInformation, drinks, setDrinks, addId, setAddId, addCart, setAddCart, userImage, setUserImage, cartProducts, setCartProducts, userIdCart, setUserIdCart, infosDelete, setInfosDelete };
 
     useEffect(() => {
         if (tokenStorage) {
