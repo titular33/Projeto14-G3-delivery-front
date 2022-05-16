@@ -40,8 +40,8 @@ function App() {
                 <BrowserRouter>
                     <Routes>
                         <Route path='/' element={<Home />} />
-                        <Route path='/drinks/:category' element={<Drinks />} />
-                        <Route path='/drinks/selected' element={<DrinkSelected />} />
+                        <Route path='/:category' element={<Drinks />} />
+                        <Route path='/selected' element={<DrinkSelected />} />
                         <Route path='/sign-up' element={<Register />} />
                         <Route path='/sign-in' element={<Login />} />
                         <Route path='/cart' element={<Cart />} />

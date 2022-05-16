@@ -24,15 +24,23 @@ function Header() {
     return (
         <ContainerHeader>
             <Link to='/' style={{ textDecoration: 'none' }} onClick={() => {
-                    setAddCart([]);
-                }}>
+                setAddCart([]);
+            }}>
                 <h1>G3 DELIVERY</h1>
             </Link>
             <ContainerUser>
-            <Link to='sign-in' style={{ textDecoration: 'none' }}>
-            <img src={userInformation ? `${userImage}` : perfil_default} alt='photoPerfil' />
-            </Link>
-                <ion-icon name="cart-outline"></ion-icon>
+                <Link to='sign-in' style={{ textDecoration: 'none' }}>
+                    <img src={userInformation ? `${userImage}` : perfil_default} alt='photoPerfil' />
+                </Link>
+
+                {
+                    userInformation ?
+                        <Link to='/cart'>
+                            <ion-icon name="cart-outline"></ion-icon>
+                        </Link>
+                        :
+                        <ion-icon name="cart-outline"></ion-icon>
+                }
                 <ion-icon name="log-out-outline" onClick={() => { logOut() }}></ion-icon>
             </ContainerUser>
         </ContainerHeader>
@@ -78,7 +86,7 @@ const ContainerHeader = styled.div`
         margin-left: 18px;
     }
 
-    ion-icon{
+    ion-icon {
         font-size:30px;
         color:white;
         margin-top: 8.56px;

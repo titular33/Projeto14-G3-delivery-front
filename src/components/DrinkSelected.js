@@ -17,7 +17,6 @@ function DrinkSelected() {
     const filtredDrinks = drinks.filter(drink => drink._id == addCart._id);
 
     function addDrink() {
-
         const config = {
             headers: {
                 Authorization: `Bearer ${userInformation}`,
@@ -83,7 +82,6 @@ const ContainerCart = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 4px solid ${props => props.border};
     box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15);
     background-color: #ffffff;
     border-radius: 8px;
@@ -91,6 +89,7 @@ const ContainerCart = styled.div`
     img {
         width: 110px;
         height: 110px;
+        margin-left: 10px;
     }
 
     p {
@@ -100,6 +99,7 @@ const ContainerCart = styled.div`
         font-weight: 400;
         font-size: 18px;
         margin-top: 5px;
+        margin-left: 15px;
     }
 `;
 

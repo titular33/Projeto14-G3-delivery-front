@@ -17,37 +17,33 @@ function MenuDrinks() {
     return (
         <ContainerCategories>
             <ContainerFirstCategory>
-                <Link to='/drinks/sucos' style={{ textDecoration: 'none' }} onClick={() => {
+                <Link to='/sucos' style={{ textDecoration: 'none' }} onClick={() => {
                     setAddId("sucos");
-                    navigate('/drinks');
                 }}>
+                    <p>SUCO</p>
                     <img src={sucos} alt='sucos' />
                 </Link>
-                <p>SUCO</p>
             </ContainerFirstCategory>
             <ContainerSecondCategory>
-                <Link to='/drinks/refrigerantes' style={{ textDecoration: 'none' }} onClick={() => {
+                <Link to='/refrigerantes' style={{ textDecoration: 'none' }} onClick={() => {
                     setAddId("refrigerantes");
-                    navigate('/drinks');
                 }}>
                     <img src={refrigerantes} alt='refrigerantes' />
                     <p>REFRIGERANTE</p>
                 </Link>
             </ContainerSecondCategory>
             <ContainerThirdCategory>
-                <Link to='/drinks/aguas' style={{ textDecoration: 'none' }} onClick={() => {
+                <Link to='/aguas' style={{ textDecoration: 'none' }} onClick={() => {
                     setAddId("aguas");
-                    navigate('/drinks');
                 }}>
                     <img src={aguas} alt='aguas' />
                     <p>ÁGUA</p>
                 </Link>
             </ContainerThirdCategory>
             <ContainerFourthCategory>
-                <Link to='/drinks/alcoolicos' style={{ textDecoration: 'none' }} onClick={() => {
+                <Link to='/alcoolicos' style={{ textDecoration: 'none' }} onClick={() => {
 
                     setAddId("alcoolicos");
-                    navigate('/drinks');
                 }}>
                     <img src={alcoolicos} alt='alcoolicos' />
                     <p>ALCOÓLICO</p>
@@ -71,10 +67,14 @@ const ContainerCategories = styled.div`
 `;
 
 const ContainerFirstCategory = styled.div`
+    position: relative;
 
     p {
         text-decoration: none;
         position: absolute;
+        font-size: 60px;
+        margin-top: 33%;
+        margin-left: 22%;
     }
 
     img {
@@ -87,14 +87,18 @@ const ContainerFirstCategory = styled.div`
         justify-content: center;
         border-radius: 8px;
         box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15); 
-        position: relative;
     }
 `;
 
 const ContainerSecondCategory = styled.div`
+    position: relative;
+
     p {
         text-decoration: none;
         position: absolute;
+        font-size: 40px;
+        top:50%;
+        left:3%;
     }
 
     img {
@@ -107,14 +111,18 @@ const ContainerSecondCategory = styled.div`
         justify-content: center;
         border-radius: 8px;
         box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15); 
-        position: relative;
     }
 `;
 
 const ContainerThirdCategory = styled.div`
+    position: relative;
+
     p {
         text-decoration: none;
         position: absolute;
+        font-size: 60px;
+        top:45%;
+        left:25%;
     }
 
     img {
@@ -127,16 +135,19 @@ const ContainerThirdCategory = styled.div`
         justify-content: center;
         border-radius: 8px;
         box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15); 
-        position: relative;
     }
 `;
 
 const ContainerFourthCategory = styled.div`
     margin-bottom: 100px;
+    position: relative;
     
     p {
         text-decoration: none;
         position: absolute;
+        font-size: 45px;
+        top:50%;
+        left:11%;
     }
 
     img {
@@ -149,6 +160,5 @@ const ContainerFourthCategory = styled.div`
         justify-content: center;
         border-radius: 8px;
         box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.15); 
-        position: relative;
     }
 `;
