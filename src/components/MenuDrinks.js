@@ -26,7 +26,7 @@ function MenuDrinks() {
                 <p>SUCO</p>
             </ContainerFirstCategory>
             <ContainerSecondCategory>
-                <Link to='/drinks/refris' style={{ textDecoration: 'none' }} onClick={() => {
+                <Link to='/drinks/refrigerantes' style={{ textDecoration: 'none' }} onClick={() => {
                     setAddId("refrigerantes");
                     navigate('/drinks');
                 }}>

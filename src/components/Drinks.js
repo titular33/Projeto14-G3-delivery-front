@@ -1,19 +1,17 @@
 import { useState, useContext, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import styled from 'styled-components';
 
 import UserContext from '../contexts/UserContext';
 import Header from './Header';
 import Footer from './Footer';
+import Cart from './Cart';
 
 function Drinks() {
-    const { userInformation, drinks, setDrinks, addId } = useContext(UserContext);
+    const { userInformation, drinks, setDrinks, addId, addCart, setUserIdCart } = useContext(UserContext);
 
     const filtredDrinks = drinks.filter(drink => drink.idCategoria == addId);
-    
-    const borderNotSelected = '#ffffff';
-    const colorNotSelected = '#000000';
 
     useEffect(() => {
         const URL = 'https://g3-delivery.herokuapp.com/drinks';
@@ -37,27 +35,11 @@ function Drinks() {
 
                     filtredDrinks.map(drink => <MappingDrinks info={drink} key={drinks._id} />)
                     :
-                    <ContainerCategories border={borderNotSelected} color={colorNotSelected}>
+                    <ContainerCategories>
                         <p>Buscando bebida...</p>
                     </ContainerCategories>
 
             }
-            <Footer />
-            <ContainerButton>
-                {
-                    userInformation ?
-                        <Link to='/cart'>
-                            <button>Colocar no carrinho!</button>
-                        </Link>
-                        :
-
-                        <>
-                            <button disabled>Colocar no carrinho!</button>
-                            <p>Você precisa estar logado para <br />colocar este produto no carrinho!</p>
-                            <p>Faça o login clicando <Link to='/sign-in' style={{ textDecoration: 'none' }}>AQUI!</Link></p>
-                        </>
-                }
-            </ContainerButton>
             {
                 userInformation ?
                     <Link to='/'>
@@ -67,6 +49,7 @@ function Drinks() {
 
                     <></>
             }
+            <Footer />
         </ContainerContent>
     );
 }
@@ -76,37 +59,16 @@ function MappingDrinks(props) {
     const { info } = props
 
     const { addCart, setAddCart } = useContext(UserContext);
-
-    const [selected, setSelected] = useState(false);
-
-    const borderNotSelected = '#ffffff';
-    const borderSelected = '#008000';
-    const colorNotSelected = '#000000';
-    const colorSelected = '#008000';
-
-    if (selected === false) {
-        return <ContainerCategories border={borderNotSelected} color={colorNotSelected} onClick={() => {
-            setAddCart([...addCart, info._id])
-            setSelected(true);
-        }
-        }>
-            <img src={info.image} alt={info.brand}></img>
-            <p>{info.name} ({info.brand})<br />R$ {info.price}</p>
-
-        </ContainerCategories>
-
-    } else if (selected === true) {
-
-        return <ContainerCategories border={borderSelected} color={colorSelected} onClick={() => {
-            setSelected(false);
-            setAddCart(addCart.splice(addCart.indexOf(info.id), 1));
-            setAddCart([...addCart]);
-        }
-        }>
-            <img src={info.image} alt={info.brand}></img>
-            <p>{info.name} ({info.brand})<br />R$ {info.price}</p>
-        </ContainerCategories>
-    }
+    return (
+        <Link to='/drinks/selected' style={{ textDecoration: 'none' }} onClick={() => {
+            setAddCart(info);
+            }}>
+            <ContainerCategories>
+                <img src={info.image} alt={info.brand}></img>
+                <p>{info.name} ({info.brand})<br />R$ {info.price}</p>
+            </ContainerCategories>
+        </Link>
+    );
 }
 
 export default Drinks;
@@ -152,6 +114,7 @@ const ContainerCategories = styled.button`
 const ContainerButton = styled.div`
     display: flex;
     flex-direction: column;
+    margin-bottom: 100px;
    
     button {
         font-family: 'Righteous';
