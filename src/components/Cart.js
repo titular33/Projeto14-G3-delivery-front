@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from "react";
-import { useNavigate, Link, useParams } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import axios from "axios";
 import styled from "styled-components";
 
@@ -28,7 +28,7 @@ export default function Cart() {
     });
     promise.catch(error => {
       console.log(error);
-      alert("Deu algum erro no get do carrinho...");
+      alert("Carrinho vazio...");
     });
   }, []);
 
@@ -105,6 +105,8 @@ export default function Cart() {
       :
       <ContainerContent>
         <Header />
+        <ContainerCart>
+        </ContainerCart>
         <Footer />
       </ContainerContent>
   );
@@ -113,15 +115,19 @@ export default function Cart() {
 function MappingProductsCart(props) {
   const { info } = props;
 
-  const { userInformation } = useContext(UserContext);
+  const { userInformation, setInfoDelete } = useContext(UserContext);
 
   return (
-    <ContainerCart>
-      <img src={info.image} alt={info.brand}></img>
-      <p>{info.name} ({info.brand})<br />R$ {info.price}</p>
-      <ion-icon name="trash-outline">
-      </ion-icon>
-    </ContainerCart>
+    <Link to={`/cart/${info._id}`}>
+      <ContainerCart>
+        <img src={info.image} alt={info.brand}></img>
+        <p>{info.name} ({info.brand})<br />R$ {info.price}</p>
+        <ion-icon name="trash-outline" onClick={ () => {
+          setInfoDelete(info);
+        }}>
+        </ion-icon>
+      </ContainerCart>
+    </Link>
   );
 }
 

@@ -9,6 +9,7 @@ import Home from "./Home"
 import Drinks from "./Drinks";
 import Cart from "./Cart";
 import DrinkSelected from "./DrinkSelected";
+import DeleteUniqueProduct from "./DeleteUniqueProduct";
 
 function App() {
     const tokenStorage = JSON.parse(localStorage.getItem('token'));
@@ -21,8 +22,9 @@ function App() {
     const [userIdCart, setUserIdCart] = useState([]);
     const [cartProducts, setCartProducts] = useState([]);
     const [addId, setAddId] = useState();
+    const [infoDelete, setInfoDelete] = useState();
 
-    const contextValue = { userInformation, setUserInformation, drinks, setDrinks, addId, setAddId, addCart, setAddCart, userImage, setUserImage, cartProducts, setCartProducts, userIdCart, setUserIdCart };
+    const contextValue = { userInformation, setUserInformation, drinks, setDrinks, addId, setAddId, addCart, setAddCart, userImage, setUserImage, cartProducts, setCartProducts, userIdCart, setUserIdCart, infoDelete, setInfoDelete };
 
     useEffect(() => {
         if (tokenStorage) {
@@ -45,6 +47,7 @@ function App() {
                         <Route path='/sign-up' element={<Register />} />
                         <Route path='/sign-in' element={<Login />} />
                         <Route path='/cart' element={<Cart />} />
+                        <Route path='/cart/:id' element={<DeleteUniqueProduct />} />
                     </Routes>
                 </BrowserRouter>
             </UserContext.Provider>

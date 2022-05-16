@@ -1,4 +1,4 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import styled from 'styled-components';
 
@@ -11,8 +11,6 @@ import sucos from '../assets/images/sucos.jpg'
 
 function MenuDrinks() {
     const { setAddId } = useContext(UserContext);
-
-    const navigate = useNavigate();
 
     return (
         <ContainerCategories>
