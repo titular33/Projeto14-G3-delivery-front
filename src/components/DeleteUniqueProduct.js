@@ -8,7 +8,7 @@ import Footer from "./Footer";
 import UserContext from "../contexts/UserContext";
 
 export default function DeleteUniqueProduct() {
-  const { cartProduct, userInformation, infosDelete } = useContext(UserContext);
+  const { userInformation, infosDelete } = useContext(UserContext);
 
   const navigate = useNavigate();
 
@@ -34,7 +34,7 @@ export default function DeleteUniqueProduct() {
       alert("Deu algum erro...");
     });
   }
-  console.log(infosDelete);
+  
 
   return (
     <ContainerContent>
