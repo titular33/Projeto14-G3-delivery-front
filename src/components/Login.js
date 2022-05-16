@@ -23,7 +23,7 @@ function Login() {
         const promise = axios.post(URL, objLogin);
 
         promise.then((response) => {
-            setUserInformation(response.data);
+            setUserInformation(response.data.token);
             setUserImage(response.data.urlImage);
             const user = JSON.stringify(response.data.token);
             const userImage = JSON.stringify(response.data.urlImage);

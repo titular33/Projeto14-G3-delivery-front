@@ -35,7 +35,6 @@ export default function DeleteUniqueProduct() {
     });
   }
   
-
   return (
     <ContainerContent>
       <Header />

@@ -106,7 +106,11 @@ export default function Cart() {
       <ContainerContent>
         <Header />
         <ContainerCart>
+          <p>Carrinho vazio...</p>
         </ContainerCart>
+        <Link to='/'>
+          <Button>Adicionar outra bebida...</Button>
+        </Link>
         <Footer />
       </ContainerContent>
   );
@@ -115,7 +119,7 @@ export default function Cart() {
 function MappingProductsCart(props) {
   const { info } = props;
 
-  const {  infosDelete, setInfosDelete } = useContext(UserContext);
+  const { infosDelete, setInfosDelete } = useContext(UserContext);
 
   return (
     <ContainerCart>
